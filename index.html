@@ -37,3 +37,789 @@
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--lighter-bg) 0%, var(--light-bg) 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(107, 158, 63, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 254, 247, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(107, 158, 63, 0.05);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(168, 194, 86, 0.15);
+            border: 1px solid var(--secondary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(107, 158, 63, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 158, 63, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(107, 158, 63, 0.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(168, 194, 86, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(107, 158, 63, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Experience Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: rgba(168, 194, 86, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(107, 158, 63, 0.12);
+            transform: translateX(10px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-company {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dim);
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(168, 194, 86, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(168, 194, 86, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            min-height: 100vh;
+            padding: 8rem 0 4rem;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-intro p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: rgba(168, 194, 86, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(168, 194, 86, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 158, 63, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dim);
+        }
+
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            background: rgba(168, 194, 86, 0.15);
+            border: 1px solid var(--secondary);
+            color: var(--primary);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide pages by default */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">RS</div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-tag">🔐 Cybersecurity & Internet Governance Specialist</div>
+                        <h1>Rohan Sachdeva</h1>
+                        <h2>Securing Digital Infrastructure & Shaping Internet Policy</h2>
+                        <p>Results-driven cybersecurity professional specializing in DNS abuse mitigation, compliance enforcement, and internet governance. Protecting Australia's digital ecosystem while contributing to global cybersecurity policy.</p>
+                        <div class="cta-buttons">
+                            <a href="#contact" onclick="showPage('contact')" class="btn btn-primary">Get in Touch</a>
+                            <a href="https://www.rohansachdeva.com" target="_blank" class="btn btn-secondary">View Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container">
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">2,100+</div>
+                        <div class="stat-label">DNS Abuse Incidents Mitigated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1,500+</div>
+                        <div class="stat-label">Data Breach Responses</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">800+</div>
+                        <div class="stat-label">Businesses Protected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">70+</div>
+                        <div class="stat-label">Events Coordinated</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Compliance Officer</h3>
+                                <div class="experience-company">.au Domain Administration</div>
+                            </div>
+                            <div class="experience-date">Nov 2023 - Present</div>
+                        </div>
+                        <ul>
+                            <li>Developed DNS monitoring solutions to detect and mitigate cyber threats, automating incident response</li>
+                            <li>Mitigated 2,100+ DNS abuse incidents including phishing, malware, and fraudulent registrations</li>
+                            <li>Integrated Cyber Threat Intelligence (CTI) to monitor threat actor activity and APTs</li>
+                            <li>Responded to data breaches affecting 1,500+ domain registrations and 800+ Australian businesses</li>
+                            <li>Ensured compliance with ISO 27001, ISO 22301, Essential Eight, and Privacy Act</li>
+                            <li>Contributed to internet governance discussions at WSIS+20, UN IGF, and ICANN</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">IT Support Officer</h3>
+                                <div class="experience-company">Monash University</div>
+                            </div>
+                            <div class="experience-date">Apr 2024 - Present</div>
+                        </div>
+                        <ul>
+                            <li>Provided technical support during eExams, troubleshooting hardware, software, and network issues</li>
+                            <li>Led and managed a team of 7 IT Support Officers through training and mentorship</li>
+                            <li>Monitored IT infrastructure and addressed security vulnerabilities in real-time</li>
+                            <li>Conducted forensic analysis to identify recurring issues and improve incident response</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section container">
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Cybersecurity</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Penetration Testing</span>
+                            <span class="skill-tag">Digital Forensics</span>
+                            <span class="skill-tag">Threat Intelligence</span>
+                            <span class="skill-tag">Incident Response</span>
+                            <span class="skill-tag">DNS Security</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Metasploit</span>
+                            <span class="skill-tag">Wireshark</span>
+                            <span class="skill-tag">Kali Linux</span>
+                            <span class="skill-tag">Autopsy</span>
+                            <span class="skill-tag">Nmap</span>
+                            <span class="skill-tag">AWS Security</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Compliance & Standards</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">ISO 27001</span>
+                            <span class="skill-tag">ISO 22301</span>
+                            <span class="skill-tag">Essential Eight</span>
+                            <span class="skill-tag">Privacy Act</span>
+                            <span class="skill-tag">Risk Management</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">IPv6</span>
+                            <span class="skill-tag">SSL/TLS</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section container">
+                <h2 class="section-title">Education & Fellowships</h2>
+                <div class="experience-grid">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Bachelor of Cybersecurity</h3>
+                                <div class="experience-company">La Trobe University, Australia</div>
+                            </div>
+                            <div class="experience-date">Jul 2023 - Jun 2026</div>
+                        </div>
+                        <ul>
+                            <li>Vice Chancellor's International Excellence 100% Scholarship recipient (top 1%)</li>
+                            <li>Inducted into La Trobe Excellence Academy</li>
+                            <li>CS & IT Planning Committee Representative to Board of Executives</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Asia Pacific Internet Governance Academy</h3>
+                                <div class="experience-company">APIGA Fellowship</div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>Residential training for youth leadership in Internet governance</li>
+                            <li>Networked with government officials, professionals, and academics</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Yale Young Global Scholars Program</h3>
+                                <div class="experience-company">Yale University, USA</div>
+                            </div>
+                            <div class="experience-date">Jul - Aug 2022</div>
+                        </div>
+                        <ul>
+                            <li>Full scholarship recipient for Literature, Philosophy, and Culture program</li>
+                            <li>Led team project on digital inclusion across six continents</li>
+                            <li>Selected as YYGS International Ambassador</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="contact-section">
+                <div class="container">
+                    <div class="contact-container">
+                        <div class="contact-intro">
+                            <h2>Let's Connect</h2>
+                            <p>Interested in cybersecurity collaboration, speaking engagements, or consulting? I'd love to hear from you.</p>
+                        </div>
+
+                        <div id="successMessage" class="success-message">
+                            Thank you for your message! I'll get back to you soon.
+                        </div>
+
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span>📧</span>
+                                <a href="mailto:contact@rohansachdeva.com">contact@rohansachdeva.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span>📱</span>
+                                <a href="tel:+61469312118">0469 312 118</a>
+                            </div>
+                            <div class="contact-item">
+                                <span>🌐</span>
+                                <a href="https://www.rohansachdeva.com" target="_blank">rohansachdeva.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rohan Sachdeva. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 5000);
+            
+            // Log form data (in a real application, this would be sent to a server)
+            console.log('Form submitted:', formData);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#home' || href === '#contact') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
